@@ -19,8 +19,9 @@ const ListTable = () => {
     Delete(id).then((result)=>{
       if(result===true){
         successToast("Delete item Success")
-        setDataList(result)
-        // navigate("/")
+        Read().then((item)=>{
+          setDataList(item)
+        })
       }else{
         errorToast("something is wrong. try again")
       }
